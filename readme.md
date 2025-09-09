@@ -1,15 +1,26 @@
 To flash:
 1.Download firmware in actions tab
+
 2.keep both halves powered on
+
 3.plug in left half and press reset button twice quickly.  This will open up a directory on your computer.
+
 4.drag and drop settings reset file onto left half
+
 5.unplug left and plug in right side press reset twice quickly. This will open a directory on your computer.
+
 6.drag and drop the settings reset file onto the right half
+
 7.unplug right half and plug in left half again
+
 8.press settings reset twice
+
 9.drag and drop the totem left firmware file
+
 10.uplug left and plug in right 
+
 11.press reset twice
+
 12.drag and drop the totem right firmware file.
 
 
