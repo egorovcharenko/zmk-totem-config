@@ -39,19 +39,19 @@
     };
 
     macros {
-        gif: gif {
-            label = "giphy";
+        up_5_lines: up_5_lines {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp N2>,
-                <&macro_release>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp G &kp I &kp F>;
+            bindings = <&kp UP_ARROW &kp UP_ARROW &kp UP_ARROW &kp UP_ARROW &kp UP_ARROW>;
+            label = "UP_5_LINES";
+            tap-ms = <5>;
+        };
+
+        down_5_lines: down_5_lines {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOWN_ARROW &kp DOWN_ARROW &kp DOWN_ARROW &kp DOWN_ARROW &kp DOWN_ARROW>;
+            label = "DOWN_5_LINES";
         };
     };
 
@@ -103,10 +103,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-                  &kp ESC    &kp LA(LEFT_ARROW)  &kp UP    &kp LA(RIGHT)  &kp LBRC    &kp RBRC  &kp N7        &kp N8        &kp N9        &kp KP_PLUS
-                  &kp LSHFT  &kp LEFT            &kp DOWN  &kp RIGHT      &kp LBKT    &kp RBKT  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp KP_MINUS
-&kp LA(LG(LEFT))  &kp DEL    &kp PG_UP           &kp CAPS  &kp PG_DN      &kp LPAR    &kp RPAR  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_MULTIPLY  &kp RA(RG(RIGHT))
-                                                 &trans    &trans         &trans      &mo ADJ   &kp KP_N0     &trans
+                  &up_5_lines    &kp LA(LEFT_ARROW)  &kp UP    &kp LA(RIGHT)  &kp LBRC    &kp RBRC  &kp N7        &kp N8        &kp N9        &kp KP_PLUS
+                  &kp LSHFT      &kp LEFT            &kp DOWN  &kp RIGHT      &kp LBKT    &kp RBKT  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp KP_MINUS
+&kp LA(LG(LEFT))  &down_5_lines  &kp PG_UP           &kp CAPS  &kp PG_DN      &kp LPAR    &kp RPAR  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_MULTIPLY  &kp RA(RG(RIGHT))
+                                                     &trans    &trans         &trans      &mo ADJ   &kp KP_N0     &trans
             >;
         };
 
@@ -129,10 +129,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-           &kp EXCL   &kp AT       &kp HASH   &kp DLLR  &kp PRCNT         &kp CARET  &kp AMPS      &kp ASTERISK          &kp SQT                &kp DQT
-           &kp RA(A)  &trans       &kp RA(S)  &trans    &kp UNDERSCORE    &kp MINUS  &kp EQUAL     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RA(O)
-&kp GRAVE  &trans     &bootloader  &trans     &trans    &trans            &kp GRAVE  &kp ASTERISK  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp BSLH   &trans
-                                   &trans     &gif      &mo ADJ           &trans     &kp C_PP      &trans
+           &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT         &kp CARET         &kp AMPS      &kp ASTERISK          &kp SQT                &kp DQT
+           &trans    &kp HOME  &trans    &kp END   &kp UNDERSCORE    &kp MINUS         &kp EQUAL     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SLASH
+&kp GRAVE  &trans    &trans    &trans    &trans    &kp LESS_THAN     &kp GREATER_THAN  &kp ASTERISK  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp BSLH   &trans
+                               &trans    &gif      &mo ADJ           &trans            &kp C_PP      &trans
             >;
         };
 
@@ -164,10 +164,10 @@
 
         Numbers {
             bindings = <
-        &trans  &trans          &kp UP_ARROW    &trans     &trans    &trans  &kp N7  &kp N8  &kp N9  &trans
-        &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &trans    &trans  &kp N4  &kp N5  &kp N6  &trans
-&trans  &trans  &trans          &trans          &trans     &trans    &trans  &kp N1  &kp N2  &kp N3  &trans  &trans
-                                &trans          &trans     &trans    &trans  &trans  &kp N0
+        &trans  &trans          &kp UP_ARROW    &trans     &trans    &trans           &kp N7  &kp N8  &kp N9  &trans
+        &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &trans    &trans           &kp N4  &kp N5  &kp N6  &trans
+&trans  &trans  &trans          &trans          &trans     &trans    &kp KP_NUMBER_0  &kp N1  &kp N2  &kp N3  &trans  &trans
+                                &trans          &trans     &trans    &trans           &trans  &kp N0
             >;
         };
     };
